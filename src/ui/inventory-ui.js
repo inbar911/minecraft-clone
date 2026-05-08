@@ -48,12 +48,13 @@ export class InventoryUi {
   }
 
   toggle() {
-    const hidden = this.root.classList.contains('hidden');
+    const wasHidden = this.root.classList.contains('hidden');
     this.root.classList.toggle('hidden');
-    if (!hidden) {
-      // closing -> dump crafting back into inventory
+    if (!wasHidden) {
+      // closing -> dump crafting and held drag back into inventory
       this._returnCraftToInv();
-      if (document.pointerLockElement) {} else document.querySelector('#game').requestPointerLock();
+      if (this.dragItem) { this.dragItem = null; this._updateGhost(); }
+      if (!document.pointerLockElement) document.querySelector('#game').requestPointerLock();
     } else {
       // opening
       if (document.pointerLockElement) document.exitPointerLock();

@@ -195,8 +195,9 @@ window.addEventListener('resize', onResize);
 
 // --- Show overlay if not yet locked ---
 overlay.classList.remove('hidden');
-canvas.addEventListener('click', () => {
+overlay.addEventListener('click', () => {
   overlay.classList.add('hidden');
+  canvas.requestPointerLock();
 });
 
 // --- Init: render hud + initial chunks ---
@@ -217,9 +218,8 @@ function loop(now) {
 
   if (!invUi.isOpen()) {
     player.update(dt, gameApi);
+    mobs.update(dt, player, gameApi);
   }
-
-  mobs.update(dt, player, gameApi);
 
   lastChunkUpdate += dt;
   if (lastChunkUpdate > 0.25) {

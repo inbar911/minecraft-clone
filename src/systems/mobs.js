@@ -127,7 +127,7 @@ export class MobSystem {
   }
 
   update(dt, player, gameApi) {
-    for (const m of this.mobs) this._updateMob(m, dt, player, gameApi);
+    for (const m of [...this.mobs]) this._updateMob(m, dt, player, gameApi);
   }
 
   _updateMob(m, dt, player, gameApi) {
