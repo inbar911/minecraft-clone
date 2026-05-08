@@ -1,0 +1,35 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: ui-monospace, monospace; color: #fff; image-rendering: pixelated; }
+#app { position: relative; width: 100vw; height: 100vh; }
+#game { display: block; width: 100%; height: 100%; cursor: none; }
+#crosshair { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: #fff; mix-blend-mode: difference; pointer-events: none; user-select: none; text-shadow: 0 0 2px #000; }
+#hotbar { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; padding: 4px; background: rgba(0,0,0,.55); border: 2px solid #222; }
+#hotbar .slot { width: 48px; height: 48px; background: rgba(60,60,60,.8); border: 2px solid #333; display: flex; align-items: flex-end; justify-content: flex-end; position: relative; padding: 2px; }
+#hotbar .slot.active { border-color: #fff; box-shadow: 0 0 0 2px #000; }
+#hotbar .slot .icon { position: absolute; inset: 4px; image-rendering: pixelated; }
+#hotbar .slot .count { font-size: 14px; color: #fff; text-shadow: 1px 1px 0 #000; z-index: 2; }
+#hud { position: absolute; top: 8px; left: 8px; font-size: 12px; line-height: 1.4; text-shadow: 1px 1px 0 #000; }
+#hp { display: flex; gap: 2px; }
+#hp .heart { width: 14px; height: 14px; background: #f33; clip-path: polygon(50% 100%, 0% 35%, 15% 15%, 35% 15%, 50% 35%, 65% 15%, 85% 15%, 100% 35%); }
+#hp .heart.empty { background: #555; }
+#coords { margin-top: 4px; }
+.hidden { display: none !important; }
+#inventory, #overlay, #death { position: absolute; inset: 0; background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
+.panel { background: #1a1a1a; border: 2px solid #444; padding: 16px; min-width: 360px; }
+.panel.center { text-align: center; }
+.panel h2 { margin-bottom: 12px; }
+.panel h3 { margin: 8px 0; font-size: 14px; color: #ccc; }
+.panel p { margin: 4px 0; }
+.panel .small { font-size: 11px; color: #aaa; }
+.grid { display: grid; grid-template-columns: repeat(9, 40px); gap: 2px; }
+.grid.craft { grid-template-columns: repeat(3, 40px); }
+.slot { width: 40px; height: 40px; background: #2a2a2a; border: 1px solid #333; position: relative; image-rendering: pixelated; }
+.slot:hover { border-color: #fff; }
+.slot .icon { position: absolute; inset: 2px; image-rendering: pixelated; pointer-events: none; }
+.slot .count { position: absolute; right: 2px; bottom: 0; font-size: 11px; color: #fff; text-shadow: 1px 1px 0 #000; pointer-events: none; }
+#craft-area { display: grid; grid-template-columns: auto auto auto; gap: 12px; align-items: center; margin-top: 8px; }
+#craft-arrow { font-size: 22px; color: #ccc; }
+.slot.output { width: 56px; height: 56px; background: #111; border: 2px solid #555; }
+button { background: #333; color: #fff; border: 1px solid #555; padding: 6px 12px; font-family: inherit; cursor: pointer; }
+button:hover { background: #444; }
+.drag-ghost { position: fixed; pointer-events: none; z-index: 9999; width: 32px; height: 32px; image-rendering: pixelated; }

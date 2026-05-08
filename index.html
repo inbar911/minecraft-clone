@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Voxel Sandbox</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="game"></canvas>
+      <div id="crosshair">+</div>
+      <div id="hotbar"></div>
+      <div id="hud">
+        <div id="hp"></div>
+        <div id="coords"></div>
+      </div>
+      <div id="inventory" class="hidden">
+        <div class="panel">
+          <h3>Inventory</h3>
+          <div id="inv-grid" class="grid"></div>
+          <h3>Crafting (3x3)</h3>
+          <div id="craft-area">
+            <div id="craft-grid" class="grid craft"></div>
+            <div id="craft-arrow">&rarr;</div>
+            <div id="craft-out" class="slot output"></div>
+          </div>
+        </div>
+      </div>
+      <div id="overlay" class="hidden">
+        <div class="panel center">
+          <h2>Voxel Sandbox</h2>
+          <p>Click to play</p>
+          <p class="small">WASD move &middot; Space jump &middot; Mouse look &middot; LMB break &middot; RMB place &middot; E inventory &middot; 1-9 hotbar &middot; F save</p>
+        </div>
+      </div>
+      <div id="death" class="hidden">
+        <div class="panel center">
+          <h2>You died</h2>
+          <button id="respawn">Respawn</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
